@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(57, 55, 55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#wrapper #calculator {
+    background-color: white;
+    width: 30vw;
+    height: 80vh;
+    border-radius: 0.5em;
+    border: 1px solid rgb(120, 120, 198);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 15vh 10vh;
+    padding: 1em;
+}
+
+#wrapper #calculator #display {
+    grid-column: span 4;
+    border: 1px solid #999;
+    background-color: rgb(187, 205, 187);
+    flex-direction: column;
+    padding: 0.3em;
+    overflow: hidden;
+}
+
+#wrapper #calculator #display #calculate {
+    font-size: 2em;
+    height: 1em;
+    width: fit-content;
+    animation: crtica 1s infinite;
+}
+
+@keyframes crtica {
+    0% {
+        border-right: 2px solid black;
+    }
+    100% {
+        border-right: none;
+    }
+}
+
+#wrapper #calculator #display #result {
+    font-size: 3em;
+}
+
+#wrapper #calculator div {
+    display: flex;
+}
+
+#wrapper #calculator #delete {
+    grid-column: span 4;
+    border-left: 1px solid #999;
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 1.5em;
+}
+
+#wrapper #calculator #delete img {
+    max-width: 30%;
+    max-height: 60%;
+    cursor: pointer;
+}
+
+#puta, #minus, #jednako, #plus {
+    border-right: 1px solid #999;
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid #999;
+    border-left: 1px solid #999;
+    font-size: 2em;
+    font-weight: 500;
+}
+
+.center:hover {
+    color: white;
+    background-color: black;
+    transition: 0.2s ease-in-out;
+}
+
+.center:last-child {
+    background-color: rgb(85, 85, 255);
+    color: white;
+}
+
+.center:hover:last-child {
+    background-color: green;
+}
