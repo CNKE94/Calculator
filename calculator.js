@@ -21,62 +21,144 @@ const obrisi = document.getElementById(`obrisi`);
 
 const allButtons = document.getElementsByClassName(`center`);
 const img = document.getElementById(`img`);
-const max_chars = 15;
-const max_chars_result = 8;
+const max_chars = 16;
+const max_chars_result = 16;
 
 window.addEventListener("keypress", function(e) {
+    display.textContent = display.textContent.slice(0, max_chars);
     if (e.key === "Enter") {
         try {
-            result.textContent = eval(display.textContent);
+            let rezultat = eval(display.textContent);
+            if (parseFloat(rezultat) % 1 !== 0) {
+                result.textContent = rezultat.toFixed(8);
+            } else {
+                result.textContent = rezultat.toString().slice(0, max_chars_result);
+            }
         } catch {
             display.textContent = `Error!`;
         }
     }
     if(e.key === "1") {
         display.textContent += 1;
+        display.textContent = display.textContent.slice(0, max_chars);
     }
     if(e.key === "2") {
         display.textContent += 2;
+        display.textContent = display.textContent.slice(0, max_chars);
     }
     if(e.key === "3") {
         display.textContent += 3;
+        display.textContent = display.textContent.slice(0, max_chars);
     }
     if(e.key === "4") {
-        const jedan = 1;
         display.textContent += 4;
+        display.textContent = display.textContent.slice(0, max_chars);
     }
     if(e.key === "5") {
-        const jedan = 1;
         display.textContent += 5;
+        display.textContent = display.textContent.slice(0, max_chars);
     }
     if(e.key === "6") {
         display.textContent += 6;
+        display.textContent = display.textContent.slice(0, max_chars);
     }
     if(e.key === "7") {
         display.textContent += 7;
+        display.textContent = display.textContent.slice(0, max_chars);
     }
     if(e.key === "8") {
         display.textContent += 8;
+        display.textContent = display.textContent.slice(0, max_chars);
     }
     if(e.key === "9") {
         display.textContent += 9;
+        display.textContent = display.textContent.slice(0, max_chars);
     }
     if(e.key === "0") {
         display.textContent += 0;
+        display.textContent = display.textContent.slice(0, max_chars);
     }
 
 
     if(e.key === "*") {
-        display.textContent += "*";
+        if(display.textContent.length == display.textContent.lastIndexOf("*") + 1) {
+            display.textContent += '';
+        } else {
+            display.textContent += '*';
+            if(display.textContent.length - 1 == display.textContent.lastIndexOf("-") + 1) {
+                display.textContent = display.textContent.slice(0, -2);
+                display.textContent += '*';
+            }
+            if(display.textContent.length - 1 == display.textContent.lastIndexOf("+") + 1) {
+                display.textContent = display.textContent.slice(0, -2);
+                display.textContent += '*';
+            }
+            if(display.textContent.length - 1 == display.textContent.lastIndexOf("/") + 1) {
+                display.textContent = display.textContent.slice(0, -2);
+                display.textContent += '*';
+            }
+        }
+        display.textContent = display.textContent.slice(0, max_chars);
     }
     if(e.key === "+") {
-        display.textContent += "+";
+        if(display.textContent.length == display.textContent.lastIndexOf("+") + 1) {
+            display.textContent += '';
+        } else {
+            display.textContent += '+';
+            if(display.textContent.length - 1 == display.textContent.lastIndexOf("-") + 1) {
+                display.textContent = display.textContent.slice(0, -2);
+                display.textContent += '+';
+            }
+            if(display.textContent.length - 1 == display.textContent.lastIndexOf("*") + 1) {
+                display.textContent = display.textContent.slice(0, -2);
+                display.textContent += '+';
+            }
+            if(display.textContent.length - 1 == display.textContent.lastIndexOf("/") + 1) {
+                display.textContent = display.textContent.slice(0, -2);
+                display.textContent += '+';
+            }
+        }
+        display.textContent = display.textContent.slice(0, max_chars);
     }
     if(e.key === "-") {
-        display.textContent += "-";
+        if(display.textContent.length == display.textContent.lastIndexOf("-") + 1) {
+            display.textContent += '';
+        } else {
+            display.textContent += '-';
+            if(display.textContent.length - 1 == display.textContent.lastIndexOf("*") + 1) {
+                display.textContent = display.textContent.slice(0, -2);
+                display.textContent += '-';
+            }
+            if(display.textContent.length - 1 == display.textContent.lastIndexOf("+") + 1) {
+                display.textContent = display.textContent.slice(0, -2);
+                display.textContent += '-';
+            }
+            if(display.textContent.length - 1 == display.textContent.lastIndexOf("/") + 1) {
+                display.textContent = display.textContent.slice(0, -2);
+                display.textContent += '-';
+            }
+        }
+        display.textContent = display.textContent.slice(0, max_chars);
     }
     if(e.key === "/") {
-        display.textContent += "/";
+        if(display.textContent.length == display.textContent.lastIndexOf("/") + 1) {
+            display.textContent += '';
+        } else {
+            display.textContent += '/';
+            if(display.textContent.length - 1 == display.textContent.lastIndexOf("-") + 1) {
+                display.textContent = display.textContent.slice(0, -2);
+                display.textContent += '/';
+            }
+            if(display.textContent.length - 1 == display.textContent.lastIndexOf("+") + 1) {
+                display.textContent = display.textContent.slice(0, -2);
+                display.textContent += '/';
+            }
+            if(display.textContent.length - 1 == display.textContent.lastIndexOf("*") + 1) {
+                display.textContent = display.textContent.slice(0, -2);
+                display.textContent += '/';
+            }
+        }
+        display.textContent = display.textContent.slice(0, max_chars);
     }
 });
 
@@ -215,7 +297,7 @@ podeljeno.addEventListener(`click`, function() {
             display.textContent += '/';
         }
     }
-})
+});
 
 jednako.addEventListener(`click`, function() {
     try {
@@ -223,7 +305,7 @@ jednako.addEventListener(`click`, function() {
         if (parseFloat(rezultat) % 1 !== 0) {
             result.textContent = rezultat.toFixed(8);
         } else {
-            result.textContent = rezultat;
+            result.textContent = rezultat.toString().slice(0, max_chars_result);
         }
     } catch {
         display.textContent = `Error!`;
@@ -246,6 +328,10 @@ for (let i = 0; i < allButtons.length; i++) {
     });
 
     allButtons[i].addEventListener(`click`, function() {
+        display.textContent = display.textContent.substring(0, max_chars);
+    });
+    
+    allButtons[i].addEventListener(`keypress`, function() {
         display.textContent = display.textContent.substring(0, max_chars);
     })
 };
